@@ -1,0 +1,25 @@
+{
+  "name": "madebyless/lessi",
+  "description": "A dead simple WordPress classes collection to help with theme development.",
+  "minimum-stability": "stable",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Made by Less",
+      "email": "hello@madebyless.com",
+      "role": "developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MadeByLess\\Lessi\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "wp-cli/wp-cli": "^2.6"
+  }
+}
