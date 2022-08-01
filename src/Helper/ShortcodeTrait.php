@@ -1,6 +1,6 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Helper;
+namespace MadeByLess\Lessi\Helper;
 
 use Timber\Timber;
 

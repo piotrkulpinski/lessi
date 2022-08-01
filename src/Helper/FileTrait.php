@@ -1,6 +1,6 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Helper;
+namespace MadeByLess\Lessi\Helper;
 
 /**
  * Provides methods to run file-related tasks

@@ -1,6 +1,6 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Handler;
+namespace MadeByLess\Lessi\Handler;
 
 use Throwable;
 

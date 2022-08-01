@@ -1,6 +1,6 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Config;
+namespace MadeByLess\Lessi\Config;
 
 /**
  * Class ConfigInterface

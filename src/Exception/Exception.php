@@ -1,6 +1,6 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Exception;
+namespace MadeByLess\Lessi\Exception;
 
 use Throwable;
 use ReflectionClass;

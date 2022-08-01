@@ -1,9 +1,9 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Factory;
+namespace MadeByLess\Lessi\Factory;
 
-use Piotrkulpinski\Framework\Helper\HelperTrait;
-use Piotrkulpinski\Framework\Helper\HookTrait;
+use MadeByLess\Lessi\Helper\HelperTrait;
+use MadeByLess\Lessi\Helper\HookTrait;
 
 /**
  * Post Type Factory

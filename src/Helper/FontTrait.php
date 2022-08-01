@@ -1,8 +1,8 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Helper;
+namespace MadeByLess\Lessi\Helper;
 
-use Piotrkulpinski\Framework\Helper\TransientTrait;
+use MadeByLess\Lessi\Helper\TransientTrait;
 
 /**
  * Provides methods for getting and manipulating fonts

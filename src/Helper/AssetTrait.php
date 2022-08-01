@@ -1,8 +1,8 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Helper;
+namespace MadeByLess\Lessi\Helper;
 
-use Piotrkulpinski\Framework\Helper\FileTrait;
+use MadeByLess\Lessi\Helper\FileTrait;
 
 /**
  * Provides methods to manipulate static asset files

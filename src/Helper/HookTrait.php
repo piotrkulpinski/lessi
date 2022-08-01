@@ -1,8 +1,8 @@
 <?php
 
-namespace Piotrkulpinski\Framework\Helper;
+namespace MadeByLess\Lessi\Helper;
 
-use Piotrkulpinski\Framework\Helper\HelperTrait;
+use MadeByLess\Lessi\Helper\HelperTrait;
 
 /**
  * Provides methods to register new hooks in the theme
