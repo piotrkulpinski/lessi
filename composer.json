@@ -20,6 +20,18 @@
     "php": ">=7.4"
   },
   "require-dev": {
-    "wp-cli/wp-cli": "^2.6"
+    "wp-cli/wp-cli": "^2.6",
+    "wp-coding-standards/wpcs": "^2.3",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "phpcompatibility/phpcompatibility-wp": "^2.1"
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "fix": "phpcbf"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
