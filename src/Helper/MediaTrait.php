@@ -2,10 +2,40 @@
 
 namespace MadeByLess\Lessi\Helper;
 
+use Timber\Timber;
+use Timber\Attachment;
+
 /**
  * Provides methods related to media files
  */
 trait MediaTrait {
+
+	/**
+	 * Returns a custom logo image object
+	 *
+	 * @param int $blogId
+	 *
+	 * @return ?Attachment
+	 */
+	public function getSiteLogo( int $blogId = 0 ): ?Attachment {
+		$switchedBlog = false;
+
+		if ( is_multisite() && ! empty( $blogId ) && get_current_blogId() !== (int) $blogId ) {
+			switch_to_blog( $blogId );
+			$switchedBlog = true;
+		}
+
+		// We have a logo. Logo is go.
+		if ( $customLogoId = get_theme_mod( 'custom_logo' ) ) {
+			$image = Timber::get_attachment( $customLogoId );
+		}
+
+		if ( $switchedBlog ) {
+			restore_current_blog();
+		}
+
+		return $image ?? null;
+	}
 
 	/**
 	 * Pulls the image content into the svg markup

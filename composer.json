@@ -17,7 +17,8 @@
     }
   },
   "require": {
-    "php": ">=7.4"
+    "php": ">=7.4",
+    "timber/timber": "^2.0.0-alpha.6"
   },
   "require-dev": {
     "wp-cli/wp-cli": "^2.6",
@@ -31,7 +32,8 @@
   },
   "config": {
     "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "composer/installers": true
     }
   }
 }
