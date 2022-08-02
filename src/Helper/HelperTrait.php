@@ -32,9 +32,9 @@ trait HelperTrait {
 	 * @return string
 	 */
 	public function truncateString( string $str, int $chars, bool $toSpace = true, string $suffix = '...' ): string {
-		$str = strip_tags( $str );
+		$str = wp_strip_all_tags( $str );
 
-		if ( $chars == 0 || $chars > strlen( $str ) ) {
+		if ( $chars === 0 || $chars > strlen( $str ) ) {
 			return $str;
 		}
 
@@ -96,7 +96,7 @@ trait HelperTrait {
 				return $item;
 			}
 
-			if ( isset( $item[ $key ] ) && $item[ $key ] == $val ) {
+			if ( isset( $item[ $key ] ) && $item[ $key ] === $val ) {
 				return $item;
 			}
 		}
@@ -115,10 +115,10 @@ trait HelperTrait {
 	 */
 	protected function findByProperty( array $haystack, string $segments, $needle ) {
 		$segments = explode( '.', $segments );
+		$end      = count( $segments );
+		$i        = 0;
 
-		$i = 0;
-
-		while ( $i < count( $segments ) ) {
+		while ( $i < $end ) {
 			$segment = $segments[ $i ];
 
 			if ( $segment !== end( $segments ) ) {

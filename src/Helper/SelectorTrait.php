@@ -85,8 +85,8 @@ trait SelectorTrait {
 			return null;
 		}
 
-		$pattern = preg_quote( $pattern );
-		$pattern = "/{$pattern}([^*]*){$pattern}/i";
+		$pattern     = preg_quote( $pattern, '/' );
+		$pattern     = "/{$pattern}([^*]*){$pattern}/i";
 		$replacement = "<{$tag}>$1</{$tag}>";
 
 		return preg_replace( $pattern, $replacement, $value );

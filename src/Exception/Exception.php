@@ -46,7 +46,7 @@ class Exception extends \Exception {
 				// smell, but this one is pretty straight forward and keeps
 				// the code looking good.
 
-				? ( in_array( $code, $constants ) ? $code : $default )
+				? ( in_array( $code, $constants, true ) ? $code : $default )
 
 				// otherwise, if $code is a string, we see if it indexes a
 				// value in our array of $constants and return that value if it

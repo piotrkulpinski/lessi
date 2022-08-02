@@ -20,7 +20,7 @@ trait FontTrait {
 			return [];
 		}
 
-		if ( false === ( $googleFonts = $this->getTransient( 'google_fonts' ) ) ) {
+		if ( ! $googleFonts = $this->getTransient( 'google_fonts' ) ) {
 			$googleFonts = $this->fetchGoogleFonts( $apiKey ) ?? [];
 			$googleFonts = array_column( $googleFonts, 'family' );
 
