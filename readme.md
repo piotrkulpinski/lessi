@@ -1,6 +1,6 @@
 # Lessi
 
-A dead simple WordPress classes collection to help with theme development.
+A dead simple WordPress class collection to help with theme development.
 
 ## Installation
 
