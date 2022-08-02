@@ -25,7 +25,7 @@ trait AssetTrait {
 	 * @return string
 	 */
 	public function assetUrl( $asset ) {
-		return $this->revisionedUrl( $this->getPath( $this->config->getAssetsPath(), $asset ) );
+		return $this->revisionedUrl( $this->getPath( config()->getAssetsPath(), $asset ) );
 	}
 
 	/**
@@ -54,7 +54,7 @@ trait AssetTrait {
 			return 'FILE-NOT-REVISIONED';
 		}
 
-		return $this->getTemplateUrl( $this->config->getDistPath(), $manifest[ $asset ] );
+		return $this->getTemplateUrl( config()->getDistPath(), $manifest[ $asset ] );
 	}
 
 	/**
@@ -84,8 +84,8 @@ trait AssetTrait {
 	 */
 	private function fetchManifest() {
 		$manifestPath = $this->isDev()
-			? $this->config->getManifestDevPath()
-			: $this->config->getManifestPath();
+			? config()->getManifestDevPath()
+			: config()->getManifestPath();
 
 		$response = wp_remote_get( $this->getTemplateUrl( $manifestPath ) );
 
