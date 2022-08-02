@@ -16,42 +16,6 @@ interface ConfigInterface {
 	public static function instance();
 
 	/**
-	 * Method that returns project name.
-	 *
-	 * Generally used for naming assets handlers, languages, etc.
-	 *
-	 * @return string
-	 */
-	public function getName(): string;
-
-	/**
-	 * Method that returns project slug.
-	 *
-	 * Generally used for naming settings, customizer options etc.
-	 *
-	 * @return string
-	 */
-	public function getSlug(): string;
-
-	/**
-	 * Method that returns project version.
-	 *
-	 * Generally used for versioning asset handlers while enqueueing them.
-	 *
-	 * @return string
-	 */
-	public function getVersion(): string;
-
-	/**
-	 * Method that returns project author.
-	 *
-	 * Used for displaying author on theme settings.
-	 *
-	 * @return string
-	 */
-	public function getAuthor(): string;
-
-	/**
 	 * Method that returns templates path.
 	 *
 	 * Used for setting up template paths for Timber views.
