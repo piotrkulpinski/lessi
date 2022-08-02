@@ -9,7 +9,6 @@ use MadeByLess\Lessi\Helper\AssetTrait;
  * Provides methods to enqueue/dequeue static files
  */
 trait EnqueueTrait {
-
 	use AssetTrait;
 
 	/**

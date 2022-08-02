@@ -2,10 +2,13 @@
 
 namespace MadeByLess\Lessi\Helper;
 
+use MadeByLess\Lessi\Helper\ThemeTrait;
+
 /**
  * Provides helper methods
  */
 trait HelperTrait {
+	use ThemeTrait;
 
 	/**
 	 * Retrieves the server param if not empty
@@ -54,11 +57,11 @@ trait HelperTrait {
 	 *
 	 * @return string
 	 */
-	public function getThemeSlug( $slug, string $separator = '_', int $slugPosition = 0 ): string {
+	public function buildThemeSlug( $slug, string $separator = '_', int $slugPosition = 0 ): string {
 		$segments     = is_array( $slug ) ? $slug : [ $slug ];
 		$segmentsHead = array_slice( $segments, 0, $slugPosition );
 		$segmentsTail = array_slice( $segments, $slugPosition );
-		$segments     = array_merge( $segmentsHead, [ get_stylesheet() ], $segmentsTail );
+		$segments     = array_merge( $segmentsHead, [ $this->getThemeSlug() ], $segmentsTail );
 
 		return join( $separator, $segments );
 	}
@@ -71,11 +74,11 @@ trait HelperTrait {
 	 *
 	 * @return string
 	 */
-	public function getPrefixedThemeSlug( $slug, string $separator = '_' ): string {
+	public function buildPrefixedThemeSlug( $slug, string $separator = '_' ): string {
 		$segments = is_array( $slug ) ? $slug : [ $slug ];
 		array_unshift( $segments, '' );
 
-		return $this->getThemeSlug( $segments, $separator, 1 );
+		return $this->buildThemeSlug( $segments, $separator, 1 );
 	}
 
 	/**

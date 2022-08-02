@@ -8,7 +8,6 @@ use MadeByLess\Lessi\Helper\HelperTrait;
  * Provides methods to run file-related tasks
  */
 trait TransientTrait {
-
 	use HelperTrait;
 
 	/**
@@ -19,7 +18,7 @@ trait TransientTrait {
 	 * @return mixed Value of transient
 	 */
 	protected function getTransient( string $transient ) {
-		return get_transient( $this->getThemeSlug( $transient ) );
+		return get_transient( $this->buildThemeSlug( $transient ) );
 	}
 
 	/**
@@ -32,7 +31,7 @@ trait TransientTrait {
 	 * @return bool True if the value was set, false otherwise.
 	 */
 	protected function setTransient( string $transient, $value, int $expiration = 0 ): bool {
-		return set_transient( $this->getThemeSlug( $transient ), $value, $expiration );
+		return set_transient( $this->buildThemeSlug( $transient ), $value, $expiration );
 	}
 
 	/**
@@ -43,6 +42,6 @@ trait TransientTrait {
 	 * @return bool True if the value was deleted, false otherwise.
 	 */
 	protected function deleteTransient( string $transient ): bool {
-		return delete_transient( $this->getThemeSlug( $transient ) );
+		return delete_transient( $this->buildThemeSlug( $transient ) );
 	}
 }

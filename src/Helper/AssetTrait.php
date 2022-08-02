@@ -8,7 +8,6 @@ use MadeByLess\Lessi\Helper\FileTrait;
  * Provides methods to manipulate static asset files
  */
 trait AssetTrait {
-
 	use FileTrait;
 
 	/**

@@ -9,7 +9,6 @@ use MadeByLess\Lessi\Helper\HookTrait;
  * Post Type Factory
  */
 class PostType {
-
 	use HelperTrait;
 	use HookTrait;
 

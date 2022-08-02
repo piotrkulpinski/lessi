@@ -8,7 +8,6 @@ use MadeByLess\Lessi\Helper\HelperTrait;
  * Provides methods to register new hooks in the theme
  */
 trait HookTrait {
-
 	use HelperTrait;
 
 	/**
@@ -69,8 +68,8 @@ trait HookTrait {
 			return null;
 		}
 
-		$this->addAction( 'wp_ajax_' . $this->getThemeSlug( $hook ), $callback, $priority, $args );
-		$this->addAction( 'wp_ajax_nopriv_' . $this->getThemeSlug( $hook ), $callback, $priority, $args );
+		$this->addAction( 'wp_ajax_' . $this->buildThemeSlug( $hook ), $callback, $priority, $args );
+		$this->addAction( 'wp_ajax_nopriv_' . $this->buildThemeSlug( $hook ), $callback, $priority, $args );
 
 		return true;
 	}
@@ -85,7 +84,7 @@ trait HookTrait {
 	 * @return mixed
 	 */
 	protected function applyFilter( string $hook, $value, bool $prefix = true, ...$args ) {
-		$hookName = $prefix ? $this->getThemeSlug( $hook ) : $hook;
+		$hookName = $prefix ? $this->buildThemeSlug( $hook ) : $hook;
 
 		return apply_filters( $hookName, $value, ...$args );
 	}

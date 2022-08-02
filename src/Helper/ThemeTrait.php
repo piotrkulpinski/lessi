@@ -2,29 +2,27 @@
 
 namespace MadeByLess\Lessi\Helper;
 
-use function wp_get_theme;
-
 /**
  * Provides methods to retrieve theme settings
  */
 trait ThemeTrait {
 
 	/**
-	 * Retrieves theme name. Used for naming assets handlers, languages, etc.
-	 *
-	 * @return string
-	 */
-	protected function getName(): string {
-		return ( wp_get_theme() )->Name;
-	}
-
-	/**
 	 * Retrieves theme slug. Used for naming settings, customizer options etc.
 	 *
 	 * @return string
 	 */
-	protected function getSlug(): string {
+	protected function buildThemeSlug(): string {
 		return get_stylesheet();
+	}
+
+	/**
+	 * Retrieves theme name. Used for naming assets handlers, languages, etc.
+	 *
+	 * @return string
+	 */
+	protected function getThemeName(): string {
+		return ( wp_get_theme() )->Name;
 	}
 
 	/**
@@ -32,7 +30,7 @@ trait ThemeTrait {
 	 *
 	 * @return string
 	 */
-	protected function getVersion(): string {
+	protected function getThemeVersion(): string {
 		return ( wp_get_theme() )->Version;
 	}
 
@@ -41,7 +39,7 @@ trait ThemeTrait {
 	 *
 	 * @return string
 	 */
-	protected function getAuthor(): string {
+	protected function getThemeAuthor(): string {
 		return ( wp_get_theme() )->Author;
 	}
 }

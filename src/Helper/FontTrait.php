@@ -8,7 +8,6 @@ use MadeByLess\Lessi\Helper\TransientTrait;
  * Provides methods for getting and manipulating fonts
  */
 trait FontTrait {
-
 	use TransientTrait;
 
 	/**
