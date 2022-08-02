@@ -12,7 +12,7 @@ trait ThemeTrait {
 	 *
 	 * @return string
 	 */
-	protected function buildThemeSlug(): string {
+	protected function getThemeSlug(): string {
 		return get_stylesheet();
 	}
 
