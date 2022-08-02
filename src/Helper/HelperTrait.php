@@ -14,7 +14,7 @@ trait HelperTrait {
 	 *
 	 * @return ?string
 	 */
-	public static function getParam( string $key ): ?string {
+	public function getParam( string $key ): ?string {
 		return $_REQUEST[ $key ] ?? null;
 	}
 

@@ -70,4 +70,25 @@ trait SelectorTrait {
 
 		return $output;
 	}
+
+	/**
+	 * Highlight part of the input with chosen tag
+	 *
+	 * @param string $value   Value to highlight from
+	 * @param string $pattern RegEx pattern to search from
+	 * @param string $tag     HTML tag to replace the pattern with
+	 *
+	 * @return string
+	 */
+	public static function highlight( string $value, string $pattern = '**', string $tag = 'strong' ): string {
+		if ( empty( $value ) ) {
+			return null;
+		}
+
+		$pattern = preg_quote( $pattern );
+		$pattern = "/{$pattern}([^*]*){$pattern}/i";
+		$replacement = "<{$tag}>$1</{$tag}>";
+
+		return preg_replace( $pattern, $replacement, $value );
+	}
 }
