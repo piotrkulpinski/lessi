@@ -72,9 +72,9 @@ trait AssetTrait {
 	/**
 	 * Get parsed manifest file content
 	 *
-	 * @return array|null
+	 * @return array
 	 */
-	private function getManifest(): ?array {
+	private function getManifest(): array {
 		if ( empty( $this->manifest ) ) {
 			$this->manifest = $this->fetchManifest();
 		}
@@ -83,21 +83,18 @@ trait AssetTrait {
 	}
 
 	/**
-	 * Fetches data from remote manifest file
+	 * Fetches data from local manifest file
 	 *
-	 * @return array|null
+	 * @return array
 	 */
-	private function fetchManifest(): ?array {
-		$manifestPath = $this->getTemplatePath(
+	private function fetchManifest(): array {
+		$path = $this->getTemplatePath(
+			config()->getDistPath(),
 			$this->isDev()
 				? config()->getManifestDevPath()
 				: config()->getManifestPath()
 		);
 
-		if ( file_exists( $manifestPath ) ) {
-			return (array) json_decode( file_get_contents( $manifestPath ) );
-		}
-
-		return null;
+		return file_exists( $path ) ? json_decode( file_get_contents( $path ), true ) : [];
 	}
 }
