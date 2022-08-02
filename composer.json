@@ -1,7 +1,6 @@
 {
   "name": "madebyless/lessi",
   "description": "A dead simple WordPress class collection to help with theme development.",
-  "minimum-stability": "dev",
   "type": "library",
   "license": "MIT",
   "authors": [
