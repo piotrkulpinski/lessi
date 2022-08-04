@@ -3,6 +3,7 @@
 namespace MadeByLess\Lessi\Handler;
 
 use Throwable;
+use LogicException;
 
 /**
  * Class AbstractThemeHandler
@@ -44,6 +45,30 @@ abstract class ThemeHandler implements HandlerInterface {
 		$this->initialized = true;
 
 		return $returnValue;
+	}
+
+	/**
+	 * Initializes a theme classes list
+	 *
+	 * @param array $classes
+	 *
+	 * @return void
+	 * @throws LogicException
+	 */
+	final protected function initializeClasses( array $classes ): void {
+		foreach ( $classes as $class ) {
+			$className = __NAMESPACE__ . '\\' . $class;
+
+			if ( ! class_exists( $className ) ) {
+				throw new LogicException( sprintf( __( 'Unable to load class: %s' ), $className ) );
+			}
+
+			if ( ! ( $instance = new $className() ) instanceof ThemeHandler ) {
+				throw new LogicException( sprintf( __( 'Class has to implement Theme interface: %s' ), $className ) );
+			}
+
+			$instance->initialize();
+		}
 	}
 
 	/**
