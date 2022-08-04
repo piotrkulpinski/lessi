@@ -57,7 +57,8 @@ abstract class ThemeHandler implements HandlerInterface {
 	 */
 	final protected function initializeClasses( array $classes ): void {
 		foreach ( $classes as $class ) {
-			$className = __NAMESPACE__ . '\\' . $class;
+			$namespace = array_slice( explode( '\\', get_class( $this ) ), 0, -1 )[0];
+			$className = "$namespace\\$class";
 
 			if ( ! class_exists( $className ) ) {
 				throw new LogicException( sprintf( __( 'Unable to load class: %s' ), $className ) );
