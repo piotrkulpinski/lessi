@@ -8,21 +8,21 @@ namespace MadeByLess\Lessi\Helper;
 trait ThemeTrait {
 
 	/**
-	 * Retrieves theme slug. Used for naming settings, customizer options etc.
-	 *
-	 * @return string
-	 */
-	protected function getThemeSlug(): string {
-		return get_stylesheet();
-	}
-
-	/**
 	 * Retrieves theme name. Used for naming assets handlers, languages, etc.
 	 *
 	 * @return string
 	 */
 	protected function getThemeName(): string {
 		return ( wp_get_theme() )->Name;
+	}
+
+	/**
+	 * Retrieves theme slug. Used for naming settings, customizer options etc.
+	 *
+	 * @return string
+	 */
+	protected function getThemeSlug(): string {
+		return ( wp_get_theme() )->TextDomain;
 	}
 
 	/**

@@ -17,6 +17,15 @@ trait CoreTrait {
 	}
 
 	/**
+	 * Registers post type support for a given feature.
+	 *
+	 * @param mixed[] $args,...
+	 */
+	protected function addPostTypeSupport( ...$args ) {
+		return add_post_type_support( ...$args );
+	}
+
+	/**
 	 * Registers custom image size
 	 *
 	 * @param mixed[] $args,...
@@ -41,5 +50,14 @@ trait CoreTrait {
 	 */
 	protected function addTextDomain( ...$args ) {
 		return load_theme_textdomain( ...$args );
+	}
+
+	/**
+	 * Registers custom sidebar
+	 *
+	 * @param mixed[] $args,...
+	 */
+	protected function addSidebar( ...$args ) {
+		return register_sidebar( ...$args );
 	}
 }
