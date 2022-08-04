@@ -61,7 +61,7 @@ trait HelperTrait {
 		$segments     = is_array( $slug ) ? $slug : [ $slug ];
 		$segmentsHead = array_slice( $segments, 0, $slugPosition );
 		$segmentsTail = array_slice( $segments, $slugPosition );
-		$segments     = array_merge( $segmentsHead, [ $this->getThemeSlug() ], $segmentsTail );
+		$segments     = array_merge( $segmentsHead, [ $this->getThemeProperty( 'text-domain' ) ], $segmentsTail );
 
 		return join( $separator, $segments );
 	}

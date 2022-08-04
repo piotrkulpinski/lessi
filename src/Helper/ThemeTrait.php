@@ -2,44 +2,33 @@
 
 namespace MadeByLess\Lessi\Helper;
 
+use Dashifen\CaseChangingTrait\CaseChangingTrait;
+
 /**
- * Provides methods to retrieve theme settings
+ * Provides methods to retrieve theme properties
  */
 trait ThemeTrait {
+	use CaseChangingTrait;
 
 	/**
-	 * Retrieves theme name. Used for naming assets handlers, languages, etc.
+	 * Retrieves theme object or property if passed.
+	 * Used for naming assets handlers, languages, etc.
 	 *
-	 * @return string
+	 * @param ?string $property
+	 *
+	 * @return object|string|null
 	 */
-	protected function getThemeName(): string {
-		return ( wp_get_theme() )->Name;
-	}
+	protected function getThemeProperty( ?string $property = null ) {
+		$theme = wp_get_theme();
 
-	/**
-	 * Retrieves theme slug. Used for naming settings, customizer options etc.
-	 *
-	 * @return string
-	 */
-	protected function getThemeSlug(): string {
-		return ( wp_get_theme() )->TextDomain;
-	}
+		if ( $theme->exists() ) {
+			if ( ! empty( $property ) ) {
+				return $theme->get( $this->kebabToPascalCase( $property ) );
+			} else {
+				return $theme;
+			}
+		}
 
-	/**
-	 * Retrieves theme version. Used for versioning asset handlers while enqueueing them.
-	 *
-	 * @return string
-	 */
-	protected function getThemeVersion(): string {
-		return ( wp_get_theme() )->Version;
-	}
-
-	/**
-	 * Retrieves theme author. Used for displaying author on theme settings.
-	 *
-	 * @return string
-	 */
-	protected function getThemeAuthor(): string {
-		return ( wp_get_theme() )->Author;
+		return null;
 	}
 }

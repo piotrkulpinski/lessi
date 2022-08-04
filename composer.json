@@ -17,7 +17,8 @@
   },
   "require": {
     "php": ">=7.4",
-    "timber/timber": "^2.0.0-alpha.6"
+    "timber/timber": "^2.0.0-alpha.6",
+    "dashifen/case-changing-trait": "^1.0"
   },
   "require-dev": {
     "wp-cli/wp-cli": "^2.6",
@@ -34,5 +35,7 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "composer/installers": true
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
