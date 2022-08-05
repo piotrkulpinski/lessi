@@ -11,6 +11,15 @@ trait HelperTrait {
 	use ThemeTrait;
 
 	/**
+	 * Retrieves the server param as an object
+	 *
+	 * @return ?object
+	 */
+	public function getParams(): object {
+		return (object) ( $_REQUEST ?: [] );
+	}
+
+	/**
 	 * Retrieves the server param if not empty
 	 *
 	 * @param string $key Key of the param
@@ -18,7 +27,7 @@ trait HelperTrait {
 	 * @return ?string
 	 */
 	public function getParam( string $key ): ?string {
-		return $_REQUEST[ $key ] ?? null;
+		return $this->getParams()->{$key} ?? null;
 	}
 
 	/**
@@ -82,6 +91,17 @@ trait HelperTrait {
 	}
 
 	/**
+	 * Check if the API response is valid
+	 *
+	 * @param array $response Remote API response array
+	 *
+	 * @return bool
+	 */
+	protected function isValidResponse( array $response ): bool {
+		return ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response );
+	}
+
+	/**
 	 * Utility to find if key/value pair exists in array
 	 *
 	 * @param array $array Haystack
@@ -137,6 +157,25 @@ trait HelperTrait {
 			}
 
 			$i++;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Get currently logged in user or by email if not logged
+	 *
+	 * @param string $email
+	 *
+	 * @return int|null
+	 */
+	private function getCurrentUserOrByEmail( string $email = '' ): ?int {
+		if ( ! empty( $currentUser = get_current_user_id() ) ) {
+			return $currentUser;
+		}
+
+		if ( ! empty( $email ) && $user = get_user_by( 'email', $email ) ) {
+			return $user->ID;
 		}
 
 		return null;

@@ -18,7 +18,7 @@ trait ThemeTrait {
 	 *
 	 * @return object|string|null
 	 */
-	protected function getThemeProperty( ?string $property = null ) {
+	public function getThemeProperty( ?string $property = null ) {
 		$theme = wp_get_theme();
 
 		if ( $theme->exists() ) {

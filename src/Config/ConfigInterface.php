@@ -13,7 +13,7 @@ interface ConfigInterface {
 	 *
 	 * @return Config
 	 */
-	public static function instance();
+	public static function getInstance();
 
 	/**
 	 * Method that returns templates path.

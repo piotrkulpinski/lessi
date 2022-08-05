@@ -143,7 +143,7 @@ class PostType {
 
 		$slug       = $this->getSlug( $singularName );
 		$labels     = $this->getGeneratedLabels( $nouns );
-		$slugOption = get_option( $this->getThemeSlug( [ $slug, 'cpt_base' ] ) );
+		$slugOption = get_option( $this->buildThemeSlug( [ $slug, 'cpt_base' ] ) );
 
 		return call_user_func( [ $this, $callback ], $labels, $slug, $slugOption ?: $slug );
 	}
