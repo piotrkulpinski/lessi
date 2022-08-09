@@ -19,13 +19,13 @@ trait HookTrait
      * @param mixed  $callback
      * @param int    $priority
      * @param int    $args
-	 *
-	 * @throws Exception
+     *
+     * @throws Exception
      */
     protected function addAction(string $hook, $callback, int $priority = 10, int $args = 1)
     {
         if (! is_callable($callback)) {
-			throw new Exception('Callbacks must be a handler method or Closure');
+            throw new Exception('Callbacks must be a handler method or Closure');
         }
 
         return is_string($callback)
@@ -44,7 +44,7 @@ trait HookTrait
     protected function addFilter(string $hook, $callback, int $priority = 10, int $args = 1)
     {
         if (! is_callable($callback)) {
-			throw new Exception('Callbacks must be a handler method or Closure');
+            throw new Exception('Callbacks must be a handler method or Closure');
         }
 
         return is_string($callback)
@@ -63,7 +63,7 @@ trait HookTrait
     protected function addAjaxAction(string $hook, $callback, int $priority = 10, int $args = 1)
     {
         if (! is_callable($callback)) {
-			throw new Exception('Callbacks must be a handler method or Closure');
+            throw new Exception('Callbacks must be a handler method or Closure');
         }
 
         $this->addAction('wp_ajax_' . $this->buildThemeSlug($hook), $callback, $priority, $args);

@@ -24,14 +24,14 @@ interface ConfigInterface
      */
     public function getTemplatesPath(): string;
 
-	/**
-	 * Method that returns public path.
-	 *
-	 * Used for enqueueing static resources.
-	 *
-	 * @return string
-	 */
-	public function getPublicPath(): string;
+    /**
+     * Method that returns public path.
+     *
+     * Used for enqueueing static resources.
+     *
+     * @return string
+     */
+    public function getPublicPath(): string;
 
     /**
      * Method that returns manifest file path.
