@@ -33,4 +33,28 @@ trait ThemeTrait
 
         return null;
     }
+
+    /**
+     * Returns theme file path.
+     *
+     * @param string $file
+     *
+     * @return string
+     */
+    public function getThemeFilePath(string $file = ''): string
+    {
+        return get_theme_file_path($file);
+    }
+
+    /**
+     * Returns theme file uri.
+     *
+     * @param string $file
+     *
+     * @return string
+     */
+    public function getThemeFileUri(string $file = ''): string
+    {
+        return get_theme_file_uri($file);
+    }
 }
