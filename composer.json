@@ -6,8 +6,7 @@
   "authors": [
     {
       "name": "Made by Less",
-      "email": "hello@madebyless.com",
-      "role": "developer"
+      "email": "hello@madebyless.com"
     }
   ],
   "autoload": {
@@ -22,9 +21,9 @@
   },
   "require-dev": {
     "wp-cli/wp-cli": "^2.6",
-    "wp-coding-standards/wpcs": "^2.3",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-    "phpcompatibility/phpcompatibility-wp": "^2.1"
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "php-stubs/wordpress-stubs": "^6.0"
   },
   "scripts": {
     "lint": "phpcs",

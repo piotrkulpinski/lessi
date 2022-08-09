@@ -25,7 +25,7 @@ trait AssetTrait {
 	 * @return string
 	 */
 	public function assetUrl( string $asset ): string {
-		return $this->revisionedUrl( $this->getPath( config()->getAssetsPath(), $asset ) );
+		return $this->revisionedUrl( $asset );
 	}
 
 	/**
@@ -57,16 +57,7 @@ trait AssetTrait {
 			return 'FILE-NOT-REVISIONED';
 		}
 
-		return $this->getTemplateUrl( config()->getDistPath(), $manifest[ $asset ] );
-	}
-
-	/**
-	 * Checks if request is in development environment
-	 *
-	 * @return bool
-	 */
-	private function isDev(): bool {
-		return defined( 'THEME_DEV_ENV' );
+		return $this->getTemplateUrl( config()->getPublicPath(), $manifest[ $asset ] );
 	}
 
 	/**
@@ -89,10 +80,8 @@ trait AssetTrait {
 	 */
 	private function fetchManifest(): array {
 		$path = $this->getTemplatePath(
-			config()->getDistPath(),
-			$this->isDev()
-				? config()->getManifestDevPath()
-				: config()->getManifestPath()
+			config()->getPublicPath(),
+			config()->getManifestPath()
 		);
 
 		return file_exists( $path ) ? json_decode( file_get_contents( $path ), true ) : [];

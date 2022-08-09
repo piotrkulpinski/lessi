@@ -7,10 +7,11 @@
 	<config name="ignore_warnings_on_exit" value="1"/>
   <config name="testVersion" value="7.4-"/>
   <config name="minimum_supported_wp_version" value="5.4"/>
-	<arg name="colors"/>
+  <arg value="-colors"/>
 	<arg value="sp"/>
+  <arg value="ns"/>
 	<arg name="basepath" value="."/>
-	<arg name="extensions" value="php"/>
+  <arg name="extensions" value="php"/>
 	<arg name="parallel" value="20"/>
 
   <!-- Exclude folders and files from being checked. -->
@@ -25,72 +26,6 @@
     <include-pattern>*\.php$</include-pattern>
   </rule>
 
-  <!--
-    WordPress-Extra
-    Best practices beyond core WordPress Coding Standards.
-    The WordPress-Core standard doesn’t have to be included here,
-    because WordPress-Extra already includes it.
-  -->
-  <rule ref="WordPress-Extra">
-    <!-- Do not check for short array syntax. -->
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
-    <!-- Do not check for proper WordPress file names. -->
-    <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
-    <!-- Do not force snake case on function/method names. -->
-    <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
-    <!-- Do not force snake case on variable names. -->
-    <exclude name="WordPress.NamingConventions.ValidVariableName"/>
-  </rule>
-
-  <!--
-    WordPress-Docs
-    WordPress Coding Standards for Inline Documentation and Comments.
-  -->
-  <!-- <rule ref="WordPress-Docs">
-    <exclude name="Squiz.Commenting.FileComment.Missing"/>
-  </rule> -->
-
-	<!-- PHP sniffs are useful. Except Yoda conditions -->
-	<rule ref="WordPress.PHP">
-		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
-		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
-	</rule>
-
-  <!--
-    File Names
-    The WordPress Coding Standards state that all class files should start with 'class-'. Chipmunk
-    follows the PSR-0 standard for naming class files, because it uses autoloading via Composer.
-    @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#disregard-class-file-name-rules
-  -->
-  <rule ref="WordPress.Files.FileName">
-    <properties>
-      <property name="strict_class_file_names" value="false" />
-    </properties>
-  </rule>
-
-	<!-- Warn about lines longer than 120 chars, and never error. -->
-  <rule ref="Generic.Files.LineLength">
-    <properties>
-      <property name="lineLimit" value="120"/>
-			<property name="absoluteLineLimit" value="0"/>
-			<property name="ignoreComments" value="true"/>
-    </properties>
-  </rule>
-
-  <!--
-    Hook Names
-    While the WordPress Coding Standards state that hook names should be separated by
-    underscores, an optionated approach used by plugins like Advanced Custom Fields is to use
-    '/' to namespace hooks.
-    @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#custom-word-delimiters-in-hook-names
-  -->
-  <rule ref="WordPress.NamingConventions.ValidHookName">
-    <properties>
-      <property name="additionalWordDelimiters" value="/"/>
-    </properties>
-  </rule>
-
-	<!-- Enforce short array syntax -->
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-
+  <!-- Use PSR-12 as a base -->
+  <rule ref="PSR12" />
 </ruleset>
